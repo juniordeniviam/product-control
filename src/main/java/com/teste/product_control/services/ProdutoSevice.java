@@ -49,6 +49,12 @@ public class ProdutoSevice {
 		produtoRepository.deletar(id);
 	}
 	
+	/**
+	 * Método para atualizar o produto na lista
+	 * @param produto que será atualizado
+	 * @param id do produto.
+	 * @return Retorna o produto após atualizar a lista.
+	 */
 	public Produto atualizar(Integer id, Produto produto) {
 		produto.setId(id);
 		return produtoRepository.atualizar(produto);
