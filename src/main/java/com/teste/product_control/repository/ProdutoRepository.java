@@ -1,13 +1,13 @@
 package com.teste.product_control.repository;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
 import com.teste.product_control.model.Produto;
+import com.teste.product_control.model.exception.ResourceNotFoundException;
 
 @Repository
 public class ProdutoRepository {
@@ -66,7 +66,7 @@ public class ProdutoRepository {
 		Optional<Produto> produtoEncontrado = obterPorId(produto.getId());
 		
 		if(produtoEncontrado.isEmpty()) {
-			throw new InputMismatchException("Produto não encontrado");
+			throw new ResourceNotFoundException("Produto inexistente");
 		}
 		
 		// Remove produto antigo da lista.
